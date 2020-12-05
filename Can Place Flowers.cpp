@@ -1,14 +1,14 @@
 class Solution {
 public:
-   bool canPlaceFlowers(vector<int>& a, int n) 
+   bool canPlaceFlowers(vector<int>& flowerbed, int n) 
     {
         int count=0;
-        int s=a.size();
-        if(s==1)
+        
+        if(flowerbed.size()==1)
         {
-            if(a[0]==1 && n==0)
+            if(flowerbed[0]==1 && n==0)
                 return true;
-            else if(a[0]==0 && n<=1)
+            else if(flowerbed[0]==0 && n<=1)
                 return true;
             else
                 return false;
@@ -16,31 +16,31 @@ public:
         }
         else
         {
-        for(int i=0;i<a.size();i++)
+        for(int i=0;i<flowerbed.size();i++)
         {
-            if(a[i]==1)
+            if(flowerbed[i]==1)
                 continue;
             if(i==0)
             {
-                if(i+1<s && a[i+1]==0)
+                if(i+1<flowerbed.size() && flowerbed[i+1]==0)
                 {
-                    a[i]=1;
+                    flowerbed[i]=1;
                     count++;
                 }
             }
-            else if(i==s-1)
+            else if(i==flowerbed.size()-1)
             {
-                if(i-1>=0 && a[i-1]==0)
+                if(i-1>=0 && flowerbed[i-1]==0)
                 {
-                    a[i]=1;
+                    flowerbed[i]=1;
                     count++;
                 }
             }
             else
             {
-                if(a[i-1]==0 && a[i+1]==0)
+                if(flowerbed[i-1]==0 && flowerbed[i+1]==0)
                 {
-                    a[i]=1;
+                    flowerbed[i]=1;
                     count++;
                 }
             }
